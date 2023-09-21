@@ -1,0 +1,41 @@
+.grid-wrapper {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    padding: 0 8px;
+}
+
+.cell {
+    padding: 10px;
+    outline: 1px solid grey;
+    margin: 3px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+
+.correct {
+    background-color: green;
+}
+
+.correct-but-incorrect-order {
+    background-color: yellow;
+}
+
+.incorrect {
+    background-color: red;
+}
+
+.initial {
+    background-color: white;
+}

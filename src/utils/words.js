@@ -45,9 +45,14 @@ const words = [
     "BEGAN",
 ];
 
-const getRandomWord = () => {
+const generateRandomWord = () => {
     const length = words.length;
     return words[Math.floor(Math.random() * length)];
 };
 
-export const word = getRandomWord();
+export let word = generateRandomWord();
+
+export const getRandomWord = () => {
+    
+    word = generateRandomWord();
+};

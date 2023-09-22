@@ -2,7 +2,7 @@ import { useState } from "react";
 import "src/App.css";
 import { Input } from "src/components/Input/Input";
 import { Grid } from "./components/Grid/Grid";
-import { word } from "./utils/words";
+import { word, getRandomWord } from "./utils/words";
 import { initialiseGrid } from "src/utils/intialiseGrid";
 
 function App() {
@@ -23,9 +23,10 @@ function App() {
                             setCurrRow(-1);
                             setGameState("started");
                             setGrid(initialiseGrid());
+                            getRandomWord();
                         }}
                     >
-                        Retry
+                        Play Again
                     </button>
                 </div>
             );
@@ -41,9 +42,10 @@ function App() {
                                 setCurrRow(-1);
                                 setGameState("started");
                                 setGrid(initialiseGrid());
+                                getRandomWord();
                             }}
                         >
-                            Retry
+                            Play Again
                         </button>
                     </div>
                 );
@@ -58,9 +60,10 @@ function App() {
                                 setCurrRow(-1);
                                 setGameState("started");
                                 setGrid(initialiseGrid());
-                            }}
+                                getRandomWord()
+;                            }}
                         >
-                            Retry
+                            Play Again
                         </button>
                     </div>
                 );

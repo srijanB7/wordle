@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "src/components/Input/Input.css";
+import { check } from "src/utils/checker";
 
 export const Input = ({
     setGuessedWord,
@@ -20,31 +21,9 @@ export const Input = ({
                 setUserInput("");
                 const nextRow = currRow + 1;
                 setCurrRow(nextRow);
-                const nextRowItems = [];
-                let didWin = true;
-                for (let i = 0; i < 5; i++) {
-                    let className;
-                    if (userInput[i] === word[i]) {
-                        className = "correct";
-                    } else if (
-                        userInput[i] !== word[i] &&
-                        word.indexOf(userInput[i]) !== -1
-                    ) {
-                        didWin = false;
-                        className = "correct-but-incorrect-order";
-                    } else if (
-                        userInput[i] !== word[i] &&
-                        word.indexOf(userInput[i]) === -1
-                    ) {
-                        didWin = false;
-                        className = "incorrect";
-                    }
-                    const currObj = {
-                        value: userInput[i],
-                        className,
-                    };
-                    nextRowItems.push(currObj);
-                }
+                const checkObj = check(userInput, word);
+                const nextRowItems = checkObj.nextRowItems;
+                let didWin = checkObj.didWin;
                 if (didWin) {
                     setGameState("won");
                 }
@@ -55,14 +34,18 @@ export const Input = ({
                 setGrid(nextGrid);
             }}
         >
-            <label htmlFor="guess-input" className="label">Enter Guess:</label>
+            <label htmlFor="guess-input" className="label">
+                Enter Guess:
+            </label>
             <input
                 id="guess-input"
                 className="guess-input"
                 type="text"
                 maxLength={5}
                 value={userInput}
-                onChange={(event) => setUserInput(event.target.value.toUpperCase())}
+                onChange={(event) =>
+                    setUserInput(event.target.value.toUpperCase())
+                }
             />
         </form>
     );

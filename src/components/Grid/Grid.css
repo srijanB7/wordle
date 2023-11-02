@@ -25,15 +25,15 @@
 
 
 .correct {
-    background-color: green;
+    background-color: hsl(150deg 70% 30%);;
 }
 
 .correct-but-incorrect-order {
-    background-color: yellow;
+    background-color: hsl(50deg 100% 30%);
 }
 
 .incorrect {
-    background-color: red;
+    background-color: hsl(0deg 70% 45%);;
 }
 
 .initial {
